@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-dark-500 text-white font-sans;
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-dark-400;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary-600 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-primary-500;
+}
+
+/* Utility classes */
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-400 to-secondary-400;
+}
+
+.section-padding {
+  @apply py-20 md:py-28 px-4 sm:px-8 lg:px-16;
+}
+
+.card-hover {
+  @apply transition-all duration-300 hover:shadow-lg hover:shadow-primary-500/20 hover:-translate-y-1;
+}
+
+/* Reveal animations */
+.reveal-fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal-fade-in.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-fade-in-delay-1 {
+  transition-delay: 0.2s;
+}
+
+.reveal-fade-in-delay-2 {
+  transition-delay: 0.4s;
+}
+
+.reveal-fade-in-delay-3 {
+  transition-delay: 0.6s;
+}
+
+/* Grid background with overlay */
+.grid-bg {
+  @apply relative overflow-hidden;
+}
+
+.grid-bg::before {
+  content: '';
+  @apply absolute inset-0 bg-grid-pattern opacity-10;
+  z-index: -1;
+}
+
+.grid-bg::after {
+  content: '';
+  @apply absolute inset-0 bg-gradient-to-r from-dark-500/95 to-dark-500/90;
+  z-index: -1;
+}
